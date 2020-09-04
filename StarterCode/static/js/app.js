@@ -1,86 +1,4 @@
 
-// d3.json("samples.json").then( function(data) {
-
-//     // dropdown menus
-//     var thosenames = data.names;
-//     console.log(thosenames);
-    
-//     var select = document.getElementById("selDataset"); 
-//     var options = thosenames; 
-
-//     for(var i = 0; i < options.length; i++) {
-//         var opt = options[i];
-//         select.innerHTML += "<option value=\"" + opt + "\">" + opt + "</option>";
-//     }
-//     //
-
-//     // initial data
-//     var dropdownMenu = d3.select("#selDataset");
-    
-//     var dataset = dropdownMenu.property("value");
-    
- 
-//     var filteredData = data.samples.filter(d => d.id == dataset)
-//     console.log(filteredData)
-
-//     var theValues = filteredData[0].sample_values.slice(0,10);
-//     console.log(theValues);
-//     var theIds = filteredData[0].otu_ids.slice(0,10);
-//     console.log(theIds);
-//     var theLabels = filteredData[0].otu_labels.slice(0,10);
-//     console.log(theLabels);
-
-//     var trace1 = {
-//         x: theIds,
-//         y: theValues,
-//         type:"bar"
-//     };
-//     var data1 = [trace1];
-
-//     var layout ={
-//         title:"top 10 OTUs found in individual"
-//     };
-
-//     Plotly.newPlot("bar", data1, layout)
-//     //
-
-//     // when clicked dropdown menu
-//     d3.selectAll("#selDataset").on("change", optionChanged);
-//     function optionChanged() {    // optionChanged
-    
-//     var dropdownMenu = d3.select("#selDataset");
-
-//     var dataset = dropdownMenu.property("value");
-    
- 
-//     var filteredData = data.samples.filter(d => d.id == dataset)
-//     console.log(filteredData)
-
-//     var theValues = filteredData[0].sample_values.slice(0,10);
-//     console.log(theValues);
-//     var theIds = filteredData[0].otu_ids.slice(0,10);
-//     console.log(theIds);
-//     var theLabels = filteredData[0].otu_labels.slice(0,10);
-//     console.log(theLabels);
-
-//     var trace2 = {
-//         x: theIds,
-//         y: theValues,
-//         type:"bar"
-//     };
-//     var data2 = [trace2];
-
-//     var layout ={
-//         title:"top 10 OTUs found in individual"
-//     };
-
-//     Plotly.restyle("bar", data2, layout)
-
-//     }  // optionChanged
-// }
-
-// )
-
 
 // drop down menu
 d3.json("samples.json").then( function(data) {
@@ -117,7 +35,7 @@ d3.json("samples.json").then( function(data) {
             x: theValues,
             y: theIds,
             orientation: 'h',
-            marker: { width: 100},
+            marker: { width: "10px"},
             text: theLabels
           }];
           
@@ -174,7 +92,8 @@ d3.json("samples.json").then( function(data) {
         x: newValues,
         y: newIds,
         orientation: 'h',
-        marker: { width: 100}
+        marker: {width : "10px"},
+        text: newLabels
       }];
       
       Plotly.newPlot('bar', data1);
